@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template-->
+
+<html>
+    <head>
+        <title>Customers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/show-data-style.css">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    </head>
+    <body>
+        <div class="header">
+            <h1> <a href="/home-page" style="cursor: pointer; color: white">Welcome to your digital Agenda </a></h1>
+            <p>Customers List</p>
+        </div>
+        <div class="container">
+             <a href="/create-customer" class="button-add">Create Customer</a>
+            </br>
+            </br>
+            </br>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address Id</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each= "customer: ${customers}">
+                   <td><a style="cursor: pointer; color: black" th:text="${customer.customerId}" th:href="@{'/show-customer/' + ${customer.customerId}}"></a></td>
+                    <td th:text="${customer.address.streetNumber}"></td>
+                    <td th:text="${customer.firstName}"></td>
+                    <td th:text="${customer.username}"></td>
+                    <td th:text="${customer.email}"></td>
+                    <td th:text="${customer.phoneNumber}"></td>
+                    <td th:text="${customer.address.addressId}"></td>
+                    <td><a th:href="@{'/update-customer/' + ${customer.customerId}}" style="cursor: pointer; color: blue">Update</a>  </br>
+                        <form action="/delete-customer">
+                            <input type="hidden" name="customerId" th:value="${customer.customerId}" />
+                            <input type="submit" style="width:100px" value="Delete" onclick="return confirm('Are you sure?');" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

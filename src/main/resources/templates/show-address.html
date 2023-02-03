@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!--Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template-->
+
+<html>
+    <head>
+        <title>Addresses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/show-data-style.css">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+
+    </head>
+    <body>
+        <div class="header">
+            <h1> <a href="/addresses" style="cursor: pointer; color: white">Welcome to your digital Agenda </a></h1>
+            <p>Address <span th:text="${address.addressId}"></span></p>
+        </div>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Street Number</th>
+                    <th>Street Name</th>
+                    <th>City</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                <input type="hidden" name="addressId" th:value="${address.addressId}" />
+                <td th:text="${address.streetNumber}"></td>
+                <td th:text="${address.streetName}"></td>
+                <td th:text="${address.city}"></td>
+                <td th:text="${address.postalCode}"></td>
+                <td th:text="${address.country}"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+

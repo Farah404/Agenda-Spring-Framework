@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!--Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template-->
+
+<html>
+    <head>
+        <title>Addresses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/show-data-style.css">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+
+    </head>
+    <body>
+        <div class="header">
+            <h1> <a href="/customers" style="cursor: pointer; color: white">Welcome to your digital Agenda </a></h1>
+            <p>Customer <span th:text="${customer.customerId}"></span></p>
+        </div>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+                <tr>
+                <input type="hidden" name="customerId" th:value="${customer.customerId}" />
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.username}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+

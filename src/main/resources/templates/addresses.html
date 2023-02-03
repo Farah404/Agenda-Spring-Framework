@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template-->
+
+<html>
+    <head>
+        <title>Addresses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/show-data-style.css">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+
+    </head>
+    <body>
+        <div class="header">
+            <h1> <a href="/home-page" style="cursor: pointer; color: white">Welcome to your digital Agenda </a></h1>
+            <p>Adrresses List</p>
+        </div>
+        <div class="container">
+            <a href="/create-address" class="button-add">Create Address</a>
+            </br>
+            </br>
+            </br>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Street Number</th>
+                    <th>Street Name</th>
+                    <th>City</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each= "address: ${addresses}">
+                    <td><a style="cursor: pointer; color: black" th:text="${address.addressId}" th:href="@{'/show-address/' + ${address.addressId}}"></a></td>
+                    <td th:text="${address.streetNumber}"></td>
+                    <td th:text="${address.streetName}"></td>
+                    <td th:text="${address.city}"></td>
+                    <td th:text="${address.postalCode}"></td>
+                    <td th:text="${address.country}"></td>
+                    <td><a th:href="@{'/update-address/' + ${address.addressId}}" style="cursor: pointer; color: blue">Update</a>  </br>
+                        <form action="/delete-address">
+                            <input type="hidden" name="addressId" th:value="${address.addressId}" />
+                            <input type="submit" style="width:100px" value="Delete" onclick="return confirm('Are you sure?');" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

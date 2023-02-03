@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Address</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/create-update-style.css">
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    </head>
+    <body>
+        <div class="header">
+            <h1> <a href="/home-page" style="cursor: pointer">Welcome to your digital Agenda </a></h1>
+            <p><a>Update Address </a></p>
+        </div>
+        <div class="container">
+            <form action="/save-updated-address">
+                <div class="form-group">
+                    <label for="streetNumber">Street Number:</label></br>
+                    <input type="number" class="form-control" name="streetNumber" th:value="${address.streetNumber}"/></br>
+                </div>
+                <div class="form-group">
+                    <label for="streetName">Street Name</label></br>
+                    <input type="text" class="form-control" name="streetName" th:value="${address.streetName}"/></br>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label></br>
+                    <input type="text" class="form-control" name="city" th:value="${address.city}"/></br>
+                </div>
+                <div class="form-group">
+                    <label for="postalCode">Postal Code</label></br>
+                    <input type="text" class="form-control" name="postalCode" th:value="${address.postalCode}"/></br>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label></br>
+                    <input type="text" class="form-control" name="country" th:value="${address.country}"/></br></br>
+                </div>
+                <input type="hidden" name="addressId" th:value="${address.addressId}" />
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </body>
+</html>
