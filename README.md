@@ -1,2 +1,2 @@
 # Agenda-Spring-Framework
-Simple CRUD + Spring framework
+Simple CRUD + Spring Framework
